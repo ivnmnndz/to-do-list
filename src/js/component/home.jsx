@@ -1,26 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+export default function Home() {
+	const [list, setList] = useState(["default", "values"]);
+	const [content, setContent] = useState("");
 
-//create your first component
-const Home = () => {
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container-fluid">
+			<h1 className="row mt-5 justify-content-center">To-Do List</h1>
+			<div className="col-lg-6 p-3 m-auto todoList">
+				<input
+					className="row m-auto w-100"
+					placeholder="Add Activity"
+					value={content}
+					onChange={event => setContent(event.target.value)}
+					onKeyPress={event => {
+						if (event.key === "Enter") {
+							setList(list.concat(content));
+							setContent("");
+						}
+					}}
+				/>
+				{list.map((item, index) => {
+					return (
+						<div className="row m-auto listItem" key={index}>
+							{item}
+							<button
+								onClick={() =>
+									setList(list.filter(e => e !== item))
+								}
+								type="button"
+								className="ms-auto align-self-center btn btn-close"></button>
+						</div>
+					);
+				})}
+				<div className="row m-auto">
+					<span className="reminder text-muted">
+						{list.length} items left
+					</span>
+				</div>
+			</div>
 		</div>
 	);
-};
-
-export default Home;
+}

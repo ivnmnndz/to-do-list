@@ -11,3 +11,34 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+.todoList {
+  border: 5px solid black;
+  border-radius: .75rem;
+}
+.listItem {
+  background: white;
+  color: grey;
+  border-bottom: 1px solid grey;
+  padding-left: 10px;
+}
+.reminder {
+  color: grey;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: blue;
+}
+input:focus {
+  border-color: green;
+}
