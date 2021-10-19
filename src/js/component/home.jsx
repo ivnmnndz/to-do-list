@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Home() {
-	const [list, setList] = useState(["default", "values"]);
+	const [list, setList] = useState(["test", "values"]);
 	const [content, setContent] = useState("");
 
 	return (
@@ -14,7 +14,7 @@ export default function Home() {
 					value={content}
 					onChange={event => setContent(event.target.value)}
 					onKeyPress={event => {
-						if (event.key === "Enter") {
+						if (event.key === "Enter" && content !== "") {
 							setList(list.concat(content));
 							setContent("");
 						}
