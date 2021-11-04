@@ -17,9 +17,26 @@ body {
   margin: 0;
   font-size: 20px;
 }
-.todoList {
+.wrapper {
   border: 5px solid black;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
+}
+input {
+  width: 100%;
+  outline: 0;
+  border-width: 0 0 4px;
+  border-color: #497be8;
+  transition-duration: 0.6s;
+  &:focus {
+    border-color: #40a08a;
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
+.todoList {
+  list-style-type: none;
+  padding: 5px;
 }
 .listItem {
   background: white;
@@ -33,12 +50,4 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 16px;
-}
-input {
-  outline: 0;
-  border-width: 0 0 2px;
-  border-color: blue;
-}
-input:focus {
-  border-color: green;
 }
