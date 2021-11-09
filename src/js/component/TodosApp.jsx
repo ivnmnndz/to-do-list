@@ -30,14 +30,16 @@ export default function TodosApp() {
 										setList(list.filter(e => e !== item))
 									}
 									type="button"
-									className="ms-auto align-self-center btn btn-close"></button>
+									className="button ms-auto align-self-center btn btn-close"></button>
 							</li>
 						);
 					})}
 				</ul>
 				<div className="row m-auto">
 					<span className="reminder text-muted">
-						{list.length} items left
+						{list.length > 0
+							? `${list.length} items left`
+							: `No tasks, add a task`}
 					</span>
 				</div>
 			</div>
